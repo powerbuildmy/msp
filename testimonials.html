@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testimonials - MSP (Molecular Science Products)</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" href="favicon.ico">
+    <meta name="description" content="Read testimonials and case studies from satisfied MSP customers across various industries.">
+    <meta name="keywords" content="MSP testimonials, case studies, customer reviews, molecular science products">
+    <meta name="author" content="MSP (Molecular Science Products Pte Ltd)">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e4e8;
+            position: sticky;
+            top: 0;
+            background-color: #f5f7fa;
+            z-index: 100;
+            padding-top: 10px;
+            justify-content: center;
+        }
+        
+        .nav-tab {
+            padding: 10px 24px;
+            background: #eef2f6;
+            border-radius: 40px;
+            text-decoration: none;
+            color: #1e2a3e;
+            font-weight: 500;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            display: inline-block;
+        }
+        
+        .nav-tab:hover {
+            background: #d4d4d4;
+        }
+        
+        .nav-tab.active {
+            background: #1a3a8f;
+            color: white;
+        }
+
+        /* Fade transition for smoother navigation */
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.12s ease;
+        }
+        
+        .fade-in {
+            opacity: 1;
+            transition: opacity 0.12s ease;
+        }
+        
+        h1 {
+            color: #1a3a8f;
+            margin: 25px 0 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #eaeaea;
+            text-align: center;
+        }
+        
+        .intro-text {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+        }
+        
+        .card-header {
+            background: #1a3a8f;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .card-body {
+            padding: 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .testimonial-title {
+            font-size: 1.2rem;
+            color: #1a3a8f;
+            margin-bottom: 10px;
+        }
+        
+        .testimonial-description {
+            color: #666;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .pdf-link {
+            display: inline-flex;
+            align-items: center;
+            background: #25D366;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s;
+            margin-top: auto;
+            gap: 6px;
+            width: fit-content;
+        }
+        
+        .pdf-link:hover {
+            background: #128C7E;
+        }
+        
+        .contact-info {
+            background: #1a3a8f;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-top: 40px;
+        }
+        
+        .contact-info a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        
+        .inline-whatsapp-link {
+            display: inline-flex;
+            align-items: center;
+            margin-left: 10px;
+            transition: transform 0.3s;
+            background: #25D366;
+            padding: 5px 12px;
+            border-radius: 40px;
+            color: white;
+            text-decoration: none;
+            gap: 6px;
+        }
+        
+        .inline-whatsapp-link:hover {
+            transform: scale(1.05);
+            background: #128C7E;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 20px;
+            color: #666;
+            border-top: 1px solid #eaeaea;
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.25s ease-in-out, opacity 0.2s;
+            opacity: 0.95;
+            text-decoration: none;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+            opacity: 1;
+        }
+        
+        .whatsapp-icon-float svg {
+            width: 34px;
+            height: 34px;
+            fill: white;
+            display: block;
+        }
+        
+        .whatsapp-float .tooltip-text {
+            position: absolute;
+            right: 70px;
+            background: #1e2a3e;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+            font-family: 'Segoe UI', sans-serif;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .whatsapp-float:hover .tooltip-text {
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .inline-whatsapp-link {
+                margin-left: 5px;
+            }
+            
+            .logo {
+                max-width: 250px;
+            }
+            
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 52px;
+                height: 52px;
+            }
+            
+            .whatsapp-icon-float svg {
+                width: 30px;
+                height: 30px;
+            }
+            
+            .tooltip-text {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="shared-header"></div>
+        
+        <h1>Customer Testimonials</h1>
+        
+        <div class="intro-text">
+            <p>Discover how MSP's molecular science products have delivered measurable results for businesses across various industries. 
+            These testimonials showcase real-world performance improvements, cost savings, and enhanced equipment longevity.</p>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="card-header">
+                    <h3>FACI Asia 01</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="testimonial-title">Industrial Equipment Performance</h4>
+                    <p class="testimonial-description">FACI Asia Pacific reports superior performance with MSP penetrating lubricant and EP-2 lithium base grease, noting smoother operation, reduced noise and vibration, and significant maintenance savings.</p>
+                    <a href="Molecular Testimony Faci Asia 01.pdf" class="pdf-link" target="_blank">
+                        <span class="pdf-icon">📄</span> View Testimonial PDF
+                    </a>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="card-header">
+                    <h3>FACI Asia</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="testimonial-title">Enhanced Performance & Energy Savings</h4>
+                    <p class="testimonial-description">FACI Asia Pacific confirms MSP products deliver enhanced performance and energy savings, with longer machine operation, fewer friction issues, and reduced maintenance overtime.</p>
+                    <a href="Molecular Testimony FACI ASIA.pdf" class="pdf-link" target="_blank">
+                        <span class="pdf-icon">📄</span> View Testimonial PDF
+                    </a>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="card-header">
+                    <h3>Drydock</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="testimonial-title">Vessel Fleet Performance</h4>
+                    <p class="testimonial-description">SEASPEC Marine Services achieved ~20% maintenance cost savings ($8,000/vessel/year), 6-8% faster travel time, 24% less oil consumption, and 50% emission reduction across their vessel fleet.</p>
+                    <a href="Molecular Testimony DRYDOCK.pdf" class="pdf-link" target="_blank">
+                        <span class="pdf-icon">📄</span> View Testimonial PDF
+                    </a>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="card-header">
+                    <h3>Ecuador Power Plant</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="testimonial-title">Power Generation Capacity Increase</h4>
+                    <p class="testimonial-description">TGSA Power Plant increased generation capacity from 2.8MW to 3.7MW on a 24-year-old Wartsila engine, extended overhaul intervals by 50%, and achieved 7.7% plant capacity increase across all engines.</p>
+                    <a href="Molecular Testimony- Ecuador Power Plant.pdf" class="pdf-link" target="_blank">
+                        <span class="pdf-icon">📄</span> View Testimonial PDF
+                    </a>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="card-header">
+                    <h3>Saybolt Test Certificate</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="testimonial-title">Independent Laboratory Verification</h4>
+                    <p class="testimonial-description">Official test certificate from Saybolt confirming MSP Engine Formulation meets industry standards with excellent lubricity (no scar), stability, and proper viscosity characteristics.</p>
+                    <a href="Molecular-Saybolt Test Certificate.pdf" class="pdf-link" target="_blank">
+                        <span class="pdf-icon">📄</span> View Testimonial PDF
+                    </a>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="card-header">
+                    <h3>SMC Marine</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="testimonial-title">Tug Boat Engine Performance</h4>
+                    <p class="testimonial-description">SMC Marine reports significant improvements across six tug boats: smoother operation, reduced vibration and noise, lower emissions, decreased operating temperature, increased power output, and 7-8% fuel savings.</p>
+                    <a href="Molecular Testimony SMC Marine 1.pdf" class="pdf-link" target="_blank">
+                        <span class="pdf-icon">📄</span> View Testimonial PDF
+                    </a>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="card-header">
+                    <h3>Trelleborg</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="testimonial-title">Industrial Machinery Efficiency</h4>
+                    <p class="testimonial-description">Trelleborg Singapore achieved 33% power reduction (101kWh to 68kWh), 24% temperature drop (50°C to 38°C), 8dB noise reduction, and extended lubricant change intervals on heavy-duty mechanical machines.</p>
+                    <a href="Molecular Testimony-Trellerborg.pdf" class="pdf-link" target="_blank">
+                        <span class="pdf-icon">📄</span> View Testimonial PDF
+                    </a>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="card-header">
+                    <h3>Hong Leong</h3>
+                </div>
+                <div class="card-body">
+                    <h4 class="testimonial-title">Granite Quarry Operations</h4>
+                    <p class="testimonial-description">Hong Leong Asia achieved 63% maintenance cost reduction (USD 1.84 to USD 0.68 per ton) and zero engine overhauls across their entire granite quarry operation after MSP implementation.</p>
+                    <a href="Molecular Testimony Hong Leong.pdf" class="pdf-link" target="_blank">
+                        <span class="pdf-icon">📄</span> View Testimonial PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="contact-info">
+            <p><strong>Contact Us for More Information:</strong></p>
+            <p>Email: <a href="mailto:admin@msp.com.sg">admin@msp.com.sg</a> | Tel: +65 6453 0800 | Mobile: +65 8661 3874 
+                <a href="https://wa.me/+6586613874?text=Hello%20MSP!%20I%20would%20like%20more%20information%20about%20your%20products." class="inline-whatsapp-link" target="_blank">
+                    <span>💬</span>
+                    <span>WhatsApp</span>
+                </a>
+            </p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 Molecular Science Products Pte Ltd. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <a href="https://wa.me/6586613874?text=Hello%20MSP!%20I%20have%20a%20question%20about%20your%20products." 
+       class="whatsapp-float" 
+       id="floatingWhatsApp"
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Chat with us on WhatsApp">
+        <div class="whatsapp-icon-float">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="34" height="34" aria-hidden="true">
+                <path d="M12.032 2.002c-5.524 0-10 4.477-10 10 0 1.78.468 3.522 1.357 5.034l-1.448 5.29 5.424-1.422c1.477.877 3.144 1.342 4.876 1.342 5.523 0 10-4.477 10-10 0-5.523-4.477-10-10-10zm0 18.309c-1.534 0-3.035-.418-4.346-1.21l-.313-.187-3.224.846.862-3.148-.204-.328c-.843-1.343-1.29-2.867-1.29-4.438 0-4.594 3.738-8.332 8.332-8.332 4.594 0 8.332 3.738 8.332 8.332 0 4.595-3.738 8.333-8.332 8.333zm4.56-6.262c-.238-.12-1.416-.698-1.635-.777-.22-.08-.38-.12-.54.12-.16.24-.62.777-.76.936-.14.16-.28.18-.518.06-.238-.12-1.005-.37-1.914-1.182-.707-.632-1.184-1.413-1.324-1.652-.14-.24-.015-.37.105-.488.108-.108.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.538-1.296-.738-1.774-.194-.464-.39-.4-.538-.41-.14-.01-.3-.01-.46-.01-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2.002 0 1.182.862 2.324.984 2.486.122.162 1.698 2.593 4.116 3.638.575.248 1.024.396 1.374.507.577.18 1.102.154 1.517.093.463-.068 1.426-.583 1.627-1.146.2-.562.2-1.044.14-1.144-.06-.1-.22-.16-.46-.28z"/>
+            </svg>
+        </div>
+        <span class="tooltip-text">Chat with us 💬</span>
+    </a>
+
+    <script>
+        // Fade transition for navigation
+        (function() {
+            const allNavLinks = document.querySelectorAll('.nav-tab');
+            const container = document.querySelector('.container');
+            
+            function handleNavClick(e) {
+                const href = this.getAttribute('href');
+                if (!href || href === '#') return;
+                e.preventDefault();
+                
+                if (container) container.classList.add('fade-out');
+                
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 120);
+            }
+            
+            allNavLinks.forEach(link => {
+                link.addEventListener('click', handleNavClick);
+            });
+            
+            if (container) {
+                container.classList.add('fade-in');
+                setTimeout(() => {
+                    container.classList.remove('fade-out');
+                }, 50);
+            }
+        })();
+
+        // Universal header loader + active tab highlighter
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('shared-header').innerHTML = data;
+                const currentPage = window.location.pathname.split('/').pop() || 'testimonials.html';
+                document.querySelectorAll('#shared-header .nav-tab').forEach(tab => {
+                    if (tab.getAttribute('href') === currentPage) tab.classList.add('active');
+                });
+            })
+            .catch(err => console.error('Error loading header:', err));
+
+        (function() {
+            const floatingBtn = document.getElementById('floatingWhatsApp');
+            if (floatingBtn) {
+                floatingBtn.style.display = 'flex';
+                floatingBtn.style.visibility = 'visible';
+                floatingBtn.style.opacity = '0.95';
+            }
+        })();
+    </script>
+</body>
+</html>
