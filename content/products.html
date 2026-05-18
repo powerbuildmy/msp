@@ -1,0 +1,30 @@
+<div class="product-map-container">
+    <img src="product range.webp" alt="MSP Product Range" class="product-range-image">
+    <div class="product-hotspot hotspot-engine" id="engineHotspot" title="Engine Formulation (Metal Treatment)"></div>
+    <div class="product-hotspot hotspot-penlub" id="penlubHotspot" title="Penetrating Lubricant"></div>
+    <div class="product-hotspot hotspot-grease" id="greaseHotspot" title="EP-2 Grease"></div>
+    <div class="product-hotspot hotspot-fuel" id="fuelHotspot" title="Fuel Conditioner"></div>
+</div>
+
+<div class="second-image-container">
+    <img src="product/plsc.webp" alt="MSP Penetrating Lubricant Spray Can" class="second-clickable-image" id="sprayCanImage">
+</div>
+
+<div id="imageModal" class="modal">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="modalImage" alt="MSP product flyer - detailed view">
+</div>
+
+<style>
+    .product-map-container { position: relative; display: inline-block; width: 100%; margin-bottom: 30px; }
+    .product-range-image { width: 100%; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); display: block; }
+    .product-hotspot { position: absolute; cursor: pointer; background: rgba(255,255,255,0); z-index: 2; transition: background 0.1s ease; }
+    .hotspot-engine { left: 2%; top: 5%; width: 22%; height: 42%; }
+    .hotspot-penlub { left: 26%; top: 5%; width: 22%; height: 42%; }
+    .hotspot-grease { left: 50%; top: 5%; width: 22%; height: 42%; }
+    .hotspot-fuel { left: 74%; top: 5%; width: 24%; height: 42%; }
+    .product-hotspot:hover { background: rgba(26, 58, 143, 0.1); border-radius: 12px; }
+    .second-image-container { position: relative; display: inline-block; width: 100%; margin-bottom: 30px; }
+    .second-clickable-image { width: 100%; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,0.05); display: block; cursor: pointer; transition: transform 0.2s ease; }
+    .second-clickable-image:hover { transform: scale(1.01); }
+</style>
