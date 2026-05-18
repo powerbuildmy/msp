@@ -3,76 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MSP - Molecular Science Products</title>
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="icon" href="favicon.ico">
-    <meta name="description" content="MSP high-performance lubrication solutions for industrial, marine, automotive applications.">
+    <title>MSP - Test</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        /* Additional SPA-specific styles */
-        #page-content {
-            min-height: 500px;
-            animation: fadeIn 0.2s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(8px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Loading indicator */
-        .page-loading {
-            text-align: center;
-            padding: 60px;
-            color: #1a3a8f;
-        }
-        
-        .page-loading i {
-            font-size: 2rem;
-            animation: spin 1s linear infinite;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
 </head>
 <body>
 <div class="container">
-    <!-- HEADER will be injected here ONCE -->
-    <div id="header-placeholder"></div>
-
-    <!-- DYNAMIC CONTENT - only this changes -->
-    <div id="page-content">
-        <div class="page-loading">
-            <i class="fas fa-spinner"></i>
-            <p>Loading...</p>
+    <!-- Header directly - no JS fetch -->
+    <div class="header-wrapper">
+        <img src="logo.webp" alt="MSP Logo" class="small-logo">
+        <div class="nav-tabs">
+            <a href="index.html" class="nav-tab">Home</a>
+            <a href="#" class="nav-tab">Products</a>
+            <a href="#" class="nav-tab">Applications</a>
+            <a href="#" class="nav-tab">Testimonials</a>
+            <a href="#" class="nav-tab">Demo</a>
+            <a href="#" class="nav-tab">Contact</a>
         </div>
     </div>
 
-    <!-- FOOTER (shared) -->
-    <div class="contact-info-bar">
-        <p><strong>Contact Us</strong><br>
-        Email: <a href="mailto:admin@msp.com.sg">admin@msp.com.sg</a> | Tel: +65 6453 0800 | Mobile: +65 8661 3874
-        <a href="https://wa.me/+6586613874?text=Hello%20MSP!" class="whatsapp-link" target="_blank">💬 WhatsApp</a>
-        </p>
+    <!-- Direct content - no JS fetch -->
+    <div class="video-section">
+        <h2>MSP Introduction Video</h2>
+        <p>Watch how Molecular Science Products revolutionise equipment performance</p>
+        <video width="100%" controls poster="intro.webp">
+            <source src="msp-introduction.mp4" type="video/mp4">
+        </video>
     </div>
 
     <div class="footer">
-        &copy; 2025 Molecular Science Products Pte Ltd. All Rights Reserved.
+        <p>&copy; 2025 Molecular Science Products Pte Ltd. All Rights Reserved.</p>
     </div>
 </div>
-
-<!-- Floating WhatsApp -->
-<a href="https://wa.me/6586613874?text=Hello%20MSP!" class="whatsapp-float" id="floatingWhatsApp" target="_blank">
-    <svg viewBox="0 0 24 24" width="34" height="34" fill="white">
-        <path d="M12.032 2.002c-5.524 0-10 4.477-10 10 0 1.78.468 3.522 1.357 5.034l-1.448 5.29 5.424-1.422c1.477.877 3.144 1.342 4.876 1.342 5.523 0 10-4.477 10-10 0-5.523-4.477-10-10-10zM16.5 15.2c-.3.9-.9 1.5-1.6 1.7-.8.2-1.6.2-2.3-.1-.9-.3-1.7-.8-2.6-1.4-.8-.6-1.5-1.3-2-2.2-.4-.7-.7-1.5-.7-2.4 0-.9.3-1.7.9-2.4.3-.3.6-.5 1-.5h.4c.2 0 .4.1.5.3l.8 1.5c.1.2.1.4 0 .6l-.6.8c-.1.2-.2.3-.1.5.4.8 1.1 1.5 1.9 2 .1.1.3.1.5 0l.8-.6c.2-.2.5-.2.7 0l1.5.8c.2.1.3.3.3.5 0 .2 0 .4-.1.6z"/>
-    </svg>
-    <span class="tooltip-text">Chat with us 💬</span>
-</a>
-
-<script src="app.js"></script>
 </body>
 </html>
